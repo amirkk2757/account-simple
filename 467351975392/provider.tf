@@ -9,7 +9,7 @@ terraform {
   }
   backend "s3" {
     bucket         = "sanbox-workload-tf-state-f17q"
-    key            = "state/terraform.tfstate"
+    key            = "state/467351975392/terraform.tfstate"
     region         = "us-east-2"
     encrypt        = true
     use_lockfile   = true
@@ -20,10 +20,10 @@ terraform {
 provider "aws" {
   region = var.region
 
-  # assume_role {
-  #   role_arn     = "arn:aws:iam::${var.account_id}:role/${var.role_name}"
-  #   session_name = "tf-${var.region}"
-  # }
+  assume_role {
+    role_arn     = "arn:aws:iam::${var.account_id}:role/${var.role_name}"
+    session_name = "tf-${var.region}"
+  }
 
   default_tags {
     tags = { Project = "Cloud WAN Workshop", Terraform = "Managed" }

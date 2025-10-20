@@ -1,5 +1,5 @@
-account_id = "134319464995"
-region     = "us-west-1"
+# account_id = "134319464995"
+region     = "us-east-2"
 
 spoke_vpcs = {
   spoke-a = {
